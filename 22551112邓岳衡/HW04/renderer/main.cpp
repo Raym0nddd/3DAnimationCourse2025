@@ -12,9 +12,10 @@ static const int WINDOW_TEXT_HEIGHT = 310;
 static const int SHADOW_MAP_WIDTH = 1024;
 static const int SHADOW_MAP_HEIGHT = 1024;
 
-// platform_initialize() 会将工作目录切换到可执行文件同级的 assets/，因此此处使用相对 assets/ 的路径
-static const char* const MODEL_PATH = "obj/african_head.obj";
-auto model = std::make_unique<Model>(MODEL_PATH);
+static const char* const ASSETS_PATH = "../../../assets";
+
+// ����ģ��
+auto model = std::make_unique<Model>((std::string(ASSETS_PATH) + std::string("/obj/african_head.obj")).c_str());
 // ��ɫ�������Ӱ��ͼ
 auto frame_buffer = std::make_unique<FrameBuffer>(WINDOW_WIDTH, WINDOW_HEIGHT);
 auto shadow_map_buffer = std::make_unique<FrameBuffer>(SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT);

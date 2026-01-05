@@ -18,12 +18,4 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET rmRenderer PROPERTY CXX_STANDARD 20)
 endif()
 
-# 运行时依赖 assets/（平台层会将工作目录切换到可执行文件同级的 assets/）
-add_custom_command(TARGET rmRenderer POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_directory
-          "${PROJECT_SOURCE_DIR}/assets"
-          "$<TARGET_FILE_DIR:rmRenderer>/assets"
-  COMMENT "Copying assets to output directory"
-)
-
 # TODO: 如有需要，请添加测试并安装目标。
